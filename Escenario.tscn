@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Yie_Ar_Kung_Fu.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.9743, 16.1046 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.3296, 16.5525 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16.0989, 16.0645 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 16.2364 )
+
+[node name="Escenario" type="Node2D"]
+
+[node name="piso1" type="Sprite" parent="."]
+position = Vector2( 18.0853, 0.0277042 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 21, 385, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="piso1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso1/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="piso2" type="Sprite" parent="."]
+position = Vector2( 67.4357, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 53, 385, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="piso2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="piso3" type="Sprite" parent="."]
+position = Vector2( 121.415, 0.463295 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 593, 385, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="piso3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso3/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="columna" type="Sprite" parent="."]
+position = Vector2( 170.524, -0.926582 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 605, 316, 20, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="columna"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="columna/StaticBody2D"]
+shape = SubResource( 4 )
+
+[node name="ventana" type="Sprite" parent="."]
+position = Vector2( 214.074, -0.463295 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 530, 241, 38, 48 )
+
+[node name="cadena" type="Sprite" parent="."]
+position = Vector2( 279.861, -0.92659 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 285, 218, 8, 8 )
+
+[node name="bong" type="Sprite" parent="."]
+position = Vector2( 1.99612, 71.1124 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 285, 226, 76, 63 )
+
+[node name="arana" type="Sprite" parent="."]
+position = Vector2( 102.674, 69.406 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 60, 146, 57, 80 )
+
+[node name="dibujo pared" type="Sprite" parent="."]
+position = Vector2( 201.645, 69.406 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 190, 129, 40, 16 )
+
+[node name="bandera" type="Sprite" parent="."]
+position = Vector2( 202.214, 107.516 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 209, 146, 16, 15 )
+
+[node name="bandera2" type="Sprite" parent="."]
+position = Vector2( 236.342, 107.516 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 209, 159, 16, 15 )
+
+[node name="bandera3" type="Sprite" parent="."]
+position = Vector2( 242.599, 84.1949 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 209, 195, 16, 15 )
+
+[node name="bandera4" type="Sprite" parent="."]
+position = Vector2( 279.002, 117.754 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 228, 161, 15, 16 )
+
+[node name="bandera5" type="Sprite" parent="."]
+position = Vector2( 244.874, 132.543 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 228, 179, 16, 15 )
+
+[node name="bandera6" type="Sprite" parent="."]
+position = Vector2( 280.708, 85.3325 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 228, 171, 16, 15 )
+
+[node name="bandera7" type="Sprite" parent="."]
+position = Vector2( 277.296, 52.9109 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 237, 161, 16, 16 )
+
+[node name="bandera8" type="Sprite" parent="."]
+position = Vector2( 277.296, 52.9109 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 244, 179, 16, 15 )

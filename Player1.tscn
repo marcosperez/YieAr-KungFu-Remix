@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player1.gd" type="Script" id=2]
+[ext_resource path="res://Arcade - Yie Ar Kung-Fu - General Sprites - modMariano.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 56, 60 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 448, 120, 56, 60 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 56, 60 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 56, 0, 56, 60 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 280, 0, 56, 60 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 504, 0, 56, 60 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 60, 56, 60 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 11 ) ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "morir",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "caminando",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": false,
+"name": "saltar",
+"speed": 0.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ) ],
+"loop": false,
+"name": "pina",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 10.1237, 16.4289 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 5.06044, 2.09454 )
+
+[node name="Player1" type="KinematicBody2D"]
+position = Vector2( -3, 0 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 5.68651, 5.28289 )
+frames = SubResource( 7 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.554779, 3.05128 )
+shape = SubResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 14.7479, 2.52882 )
+shape = SubResource( 9 )
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_Area2D_body_shape_entered"]

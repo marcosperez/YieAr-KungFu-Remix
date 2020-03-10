@@ -5,6 +5,7 @@ const Speed = 7
 const Gravity = 20
 const Jump_power = -350
 const Floor = Vector2(0,-1)
+const VelocidadMaxima = 200
 var on_ground = false
 export var lado = true
 export var jugador = 1
@@ -31,7 +32,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		if on_ground==true:
 			$AnimatedSprite.animation = 'caminando'
-		velocidad.x += Speed
+		if velocidad.x < 0: 
+			velocidad.x = 0
+		if velocidad.x < VelocidadMaxima: 
+			velocidad.x += Speed
 		$AnimatedSprite.flip_h = false
 		lado = false
 		$Area2D/CollisionShape2D2.position.x = abs( $Area2D/CollisionShape2D2.position.x) 
@@ -42,7 +46,10 @@ func _physics_process(delta):
 		$AnimatedSprite.flip_h = true
 		lado = true
 		$Area2D/CollisionShape2D2.position.x = -abs( $Area2D/CollisionShape2D2.position.x)
-		velocidad.x += -Speed
+		if velocidad.x > 0: 
+			velocidad.x = 0
+		if velocidad.x < VelocidadMaxima: 
+			velocidad.x += -Speed
 	else:
 		if (on_ground==true and pina == false):
 			$AnimatedSprite.animation = 'idle'
@@ -54,7 +61,7 @@ func _physics_process(delta):
 			velocidad.y += Jump_power
 			on_ground = false
 
-	if Input.is_key_pressed(KEY_K) and just_pressed:
+	if Input.is_action_pressed("player1_puno_normal") and just_pressed:
 		if on_ground==true:
 			$AnimatedSprite.animation = 'pina'
 			$Area2D/CollisionShape2D2.disabled = false
